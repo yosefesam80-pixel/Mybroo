@@ -59,7 +59,6 @@
   </script>
 
   <style>
-    /* Native cursor remains strictly visible; optional soft ambient glow */
     body {
       background-color: #050505;
       color: #E2E2E2;
@@ -71,7 +70,6 @@
       color: #050505;
     }
 
-    /* Cinematic Metallic Gold Gradient Text */
     .gold-gradient-text {
       background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #8C6A18 100%);
       background-clip: text;
@@ -79,14 +77,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .silver-gradient-text {
-      background: linear-gradient(135deg, #FFFFFF 0%, #B0B0B0 50%, #6E6E6E 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Dark Luxury Glassmorphism */
     .glass-card {
       background: rgba(18, 18, 18, 0.7);
       backdrop-filter: blur(16px);
@@ -103,26 +93,15 @@
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.12);
     }
 
-    /* Ambient noise overlay */
     .noise-bg {
       background-image: radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 0);
       background-size: 28px 28px;
     }
 
-    /* Glow aura */
-    .gold-aura {
-      box-shadow: 0 0 60px -10px rgba(212, 175, 55, 0.3);
-    }
-
-    /* Smooth perspective 3D tilt containers */
     .perspective-1000 {
       perspective: 1200px;
     }
-    .preserve-3d {
-      transform-style: preserve-3d;
-    }
 
-    /* Subtle cursor follower for desktop only */
     #cursor-follower {
       pointer-events: none;
       position: fixed;
@@ -139,15 +118,6 @@
       #cursor-follower {
         display: none !important;
       }
-    }
-
-    /* Candle glow flicker */
-    @keyframes candlePulse {
-      0%, 100% { opacity: 0.9; transform: scale(1); }
-      50% { opacity: 0.65; transform: scale(0.96); }
-    }
-    .flame-anim {
-      animation: candlePulse 1.8s ease-in-out infinite;
     }
 
     .intro-3d-number {
@@ -168,10 +138,6 @@
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.1); }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    }
   </style>
 </head>
 
@@ -179,28 +145,24 @@
 
   <audio id="birthday-music" src="song.mp3" loop preload="none"></audio>
 
-  <!-- Desktop Ambient Mouse Glow (Native cursor never hidden) -->
+  <!-- Desktop Ambient Mouse Glow -->
   <div id="cursor-follower" class="hidden md:block opacity-0"></div>
 
   <!-- ============================================================ -->
   <!-- 1. CINEMATIC OPENING SCREEN -->
   <!-- ============================================================ -->
   <div id="intro-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#050505] px-4 transition-opacity duration-1000">
-    <!-- Atmospheric subtle ambient light behind 31 -->
     <div class="absolute w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-gold-400/10 blur-[120px] pointer-events-none"></div>
 
     <div class="relative z-10 max-w-2xl text-center space-y-6">
-      <!-- Animated Line 1 -->
       <div id="intro-line-1" class="text-xs sm:text-sm tracking-[0.4em] uppercase font-syne text-gold-300/80 transition-all duration-1000 opacity-0 translate-y-4">
         HEY SHEREEF
       </div>
 
-      <!-- Animated Line 2 -->
       <div id="intro-line-2" class="text-sm sm:text-base tracking-[0.25em] uppercase font-jakarta text-zinc-400 transition-all duration-1000 opacity-0 translate-y-4">
         YOU JUST TURNED
       </div>
 
-      <!-- Hero Metallic 31 Graphic -->
       <div id="intro-number-31" class="relative my-2 sm:my-4 transition-all duration-1000 opacity-0 scale-90">
         <h1 class="intro-3d-number font-cinzel text-7xl sm:text-9xl md:text-[11rem] font-black gold-gradient-text tracking-tight leading-none drop-shadow-[0_15px_30px_rgba(212,175,55,0.25)]">
           31
@@ -208,7 +170,6 @@
         <div class="text-xs text-zinc-400 font-cairo mt-3">31 سنة ولسه يا ما هنشوف 😂</div>
       </div>
 
-      <!-- Animated Line 3 & 4 -->
       <div id="intro-line-3" class="space-y-1 transition-all duration-1000 opacity-0 translate-y-4">
         <p class="font-cinzel text-xl sm:text-3xl text-zinc-100 tracking-wider font-semibold">
           HAPPY BIRTHDAY
@@ -218,12 +179,10 @@
         </p>
       </div>
 
-      <!-- Egyptian Friend Note in Intro -->
       <div id="intro-line-4" class="text-zinc-400 text-sm sm:text-base font-cairo pt-2 transition-all duration-1000 opacity-0">
         بقالنا شهر بس صحاب.. بس الراجل دخل القلب بسرعة 😂
       </div>
 
-      <!-- Entry Button -->
       <div id="intro-btn-wrapper" class="pt-6 transition-all duration-1000 opacity-0">
         <button id="btn-enter" onclick="enterExperience()" class="group relative inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-gold-400 via-gold-300 to-gold-400 text-noir-950 font-bold font-cairo text-base sm:text-lg shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:shadow-[0_0_45px_rgba(212,175,55,0.7)] hover:scale-105 active:scale-95 transition-all duration-300">
           <span>ادخل يا نجم 😂</span>
@@ -232,7 +191,6 @@
       </div>
     </div>
 
-    <!-- Small Sound Ambient Note -->
     <div class="absolute bottom-6 text-[11px] text-zinc-600 font-jakarta tracking-wider flex items-center gap-2">
       <i data-lucide="volume-2" class="w-3.5 h-3.5 text-gold-400"></i>
       <span>المزيكا بتبدأ مع دوسة الدخول</span>
@@ -240,7 +198,7 @@
   </div>
 
   <!-- ============================================================ -->
-  <!-- NAVIGATION BAR (Minimalist & Luxury) -->
+  <!-- NAVIGATION BAR -->
   <!-- ============================================================ -->
   <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-noir-950/80 border-b border-zinc-800/60">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
@@ -268,11 +226,12 @@
     </div>
   </header>
 
+  <!-- Floating Music Toggle -->
   <div id="music-control" class="fixed bottom-4 left-4 z-40 hidden items-center gap-1.5 rounded-full border border-gold-400/25 bg-noir-950/90 p-1.5 shadow-xl backdrop-blur-md" aria-label="التحكم في الموسيقى">
-    <button id="music-play-toggle" type="button" onclick="togglePlayback()" aria-label="تشغيل الموسيقى" title="تشغيل الموسيقى" class="w-9 h-9 rounded-full flex items-center justify-center text-gold-300 hover:bg-gold-400/10 transition-colors">
+    <button id="music-play-toggle" type="button" onclick="togglePlayback()" aria-label="تشغيل الموسيقى" class="w-9 h-9 rounded-full flex items-center justify-center text-gold-300 hover:bg-gold-400/10 transition-colors">
       <i id="music-play-icon" data-lucide="play" class="w-4 h-4"></i>
     </button>
-    <button id="music-mute-toggle" type="button" onclick="toggleMute()" aria-label="كتم الموسيقى" title="كتم الموسيقى" class="w-9 h-9 rounded-full flex items-center justify-center text-zinc-300 hover:bg-gold-400/10 hover:text-gold-300 transition-colors">
+    <button id="music-mute-toggle" type="button" onclick="toggleMute()" aria-label="كتم الموسيقى" class="w-9 h-9 rounded-full flex items-center justify-center text-zinc-300 hover:bg-gold-400/10 hover:text-gold-300 transition-colors">
       <i id="music-mute-icon" data-lucide="volume-2" class="w-4 h-4"></i>
     </button>
   </div>
@@ -283,31 +242,25 @@
     <!-- 2. HERO SECTION -->
     <!-- ============================================================ -->
     <section id="hero" class="relative min-h-[85vh] flex items-center justify-center pt-8 sm:pt-12 px-4 sm:px-6 overflow-hidden">
-      <!-- Ambient Backlights -->
       <div class="absolute top-1/4 -right-20 w-96 h-96 bg-gold-400/5 rounded-full blur-[140px] pointer-events-none"></div>
       <div class="absolute bottom-10 -left-20 w-80 h-80 bg-zinc-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6 sm:space-y-8">
-        
-        <!-- Friendly Pill Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/25 bg-gold-400/5 text-gold-300 text-xs sm:text-sm font-medium">
           <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-300"></i>
           <span>شهر واحد صحوبية.. والباقي هبل 😂</span>
         </div>
 
-        <!-- Main Headline -->
         <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-cairo text-zinc-100 leading-tight">
           كل سنة وانت طيب يا <span class="gold-gradient-text inline-block">شريف</span> ❤️
         </h1>
 
-        <!-- Egyptian Natural Subtitle -->
         <p class="text-lg sm:text-2xl text-zinc-300/90 font-cairo font-normal max-w-2xl mx-auto leading-relaxed">
           بقالنا شهر بس صحاب..
           <br class="hidden sm:inline" />
           بس بصراحة الراجل طلع جدع وطيب ودمه خفيف 😂
         </p>
 
-        <!-- CTA Buttons with Hover Magnetism -->
         <div class="flex flex-wrap items-center justify-center gap-4 pt-4 sm:pt-6">
           <a href="#photos" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-gold-400 to-gold-500 text-noir-950 font-bold font-cairo text-base sm:text-lg shadow-[0_0_25px_rgba(212,175,55,0.35)] hover:shadow-[0_0_35px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all">
             كمل يا نجم
@@ -318,7 +271,6 @@
           </a>
         </div>
 
-        <!-- Quick 31 Stat Cards Strip -->
         <div class="grid grid-cols-3 gap-3 sm:gap-6 pt-10 sm:pt-14 max-w-2xl mx-auto">
           <div class="glass-card p-3 sm:p-5 rounded-2xl text-center border-zinc-800/80">
             <div class="font-cinzel text-xl sm:text-3xl font-extrabold gold-gradient-text">31</div>
@@ -333,37 +285,32 @@
             <div class="text-[11px] sm:text-xs text-zinc-400 font-cairo mt-1">جدعنة وطيبة وضحك</div>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- 3. PHOTO ARCHITECTURE: EXACTLY 3 PHOTOS (ME+SHEREEF, SHEREEF 1, SHEREEF 2) -->
+    <!-- 3. PHOTO ARCHITECTURE: TOGETHER 3 (MAIN) + TOGETHER 1 & 2 -->
     <!-- ============================================================ -->
     <section id="photos" class="relative max-w-6xl mx-auto px-4 sm:px-6">
       
-      <!-- Section Header -->
       <div class="text-center space-y-3 mb-12 sm:mb-16">
         <span class="text-xs uppercase tracking-[0.3em] font-syne text-gold-400 font-bold">SHEREEF · 31</span>
         <h2 class="text-3xl sm:text-5xl font-black font-cairo text-zinc-100">
-          شريف.. على طبيعته 😂
+          الصور التلاتة.. سوا وفي قلب الحدث 😂
         </h2>
         <p class="text-zinc-400 text-sm sm:text-base font-cairo max-w-xl mx-auto">
-          تلات صور حلوين، واللي جاي لسه فيه هبل أكتر 😂
+          شهر واحد بس بس فيه لقطات تثبت إن اللي جاي هبل أكتر بكثير 😂
         </p>
       </div>
 
-      <!-- Asymmetrical 3-Card Luxury Composition -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
 
-        <!-- PHOTO 1: CENTERPIECE / MAIN PHOTO (ME + SHEREEF) - 7 Columns on Large -->
+        <!-- PHOTO 1 (MAIN): together3.jpg -->
         <div class="lg:col-span-7 perspective-1000">
           <div id="card-photo-1" class="glass-card glass-card-hover rounded-3xl p-4 sm:p-6 relative group overflow-hidden border-gold-400/30">
             
-            <!-- Atmospheric Gold Glow Behind -->
             <div class="absolute -top-20 -right-20 w-64 h-64 bg-gold-400/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-gold-400/20 transition-all duration-500"></div>
 
-            <!-- Top Card Badge -->
             <div class="flex items-center justify-between mb-4">
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/15 border border-gold-400/30 text-gold-300 text-xs font-semibold">
                 <i data-lucide="crown" class="w-3.5 h-3.5"></i>
@@ -371,19 +318,16 @@
               </span>
             </div>
 
-            <!-- Main Image Wrapper (16:11 or 4:3 optimal for 2 people) -->
             <div class="relative w-full min-h-[320px] sm:min-h-[440px] rounded-2xl overflow-hidden bg-noir-950 border border-zinc-800/90 shadow-2xl flex items-center justify-center">
               <img 
                 id="preview-photo-1" 
-                src="image/together3.jpg" 
+                src="together3.jpg" 
                 alt="أنا وشريف سوا" 
                 class="max-h-[620px] w-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
               />
 
-              <!-- Luxury Ambient Dark Gradient Scrim -->
               <div class="absolute inset-0 bg-gradient-to-t from-noir-950 via-noir-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
 
-              <!-- Overlaid Caption -->
               <div class="absolute bottom-4 right-4 left-4 flex justify-between items-end">
                 <div>
                   <h3 class="text-xl sm:text-2xl font-bold font-cairo text-zinc-100">
@@ -402,53 +346,53 @@
           </div>
         </div>
 
-        <!-- PHOTO 2 & PHOTO 3: TWO SUPPORTING SOLO PORTRAITS OF SHEREEF - 5 Columns -->
+        <!-- PHOTO 2 & 3: together (1).jpeg & together (2).jpeg -->
         <div class="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
 
-          <!-- PHOTO 2: Shereef Solo (Card 1) -->
+          <!-- PHOTO 2: together (1).jpeg -->
           <div class="glass-card glass-card-hover rounded-3xl p-4 sm:p-5 relative group border-zinc-800">
             <div class="flex items-center justify-between mb-3">
               <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-medium">
-                <i data-lucide="user-check" class="w-3 h-3 text-gold-400"></i>
-                شريف الرايق
+                <i data-lucide="sparkles" class="w-3 h-3 text-gold-400"></i>
+                لقطة رايقة
               </span>
             </div>
 
             <div class="relative w-full h-[300px] sm:h-[340px] rounded-xl overflow-hidden bg-noir-950 border border-zinc-800 flex items-center justify-center">
               <img 
                 id="preview-photo-2" 
-                src="image/shereef1.jpg" 
-                alt="شريف لوحده 1" 
+                src="together (1).jpeg" 
+                alt="لقطة سوا 1" 
                 class="h-full max-w-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-700"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-noir-950 via-transparent to-transparent opacity-75"></div>
               <div class="absolute bottom-2.5 right-3 left-3 flex justify-between items-center text-xs">
                 <span class="font-cairo text-zinc-200 font-semibold">شريف يا نجم 😂</span>
-                <span class="text-zinc-500 font-mono text-[10px]">#02_SOLO</span>
+                <span class="text-zinc-500 font-mono text-[10px]">#02_SHOT</span>
               </div>
             </div>
           </div>
 
-          <!-- PHOTO 3: Shereef Solo (Card 2) -->
+          <!-- PHOTO 3: together (2).jpeg -->
           <div class="glass-card glass-card-hover rounded-3xl p-4 sm:p-5 relative group border-zinc-800">
             <div class="flex items-center justify-between mb-3">
               <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-medium">
-                <i data-lucide="smile" class="w-3 h-3 text-gold-400"></i>
-                شريف بالهيبة
+                <i data-lucide="camera" class="w-3 h-3 text-gold-400"></i>
+                ذكريات الشهر الأول
               </span>
             </div>
 
             <div class="relative w-full h-[300px] sm:h-[340px] rounded-xl overflow-hidden bg-noir-950 border border-zinc-800 flex items-center justify-center">
               <img 
                 id="preview-photo-3" 
-                src="image/shereef2.jpg" 
-                alt="شريف لوحده 2" 
+                src="together (2).jpeg" 
+                alt="لقطة سوا 2" 
                 class="h-full max-w-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-700"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-noir-950 via-transparent to-transparent opacity-75"></div>
               <div class="absolute bottom-2.5 right-3 left-3 flex justify-between items-center text-xs">
                 <span class="font-cairo text-zinc-200 font-semibold">31 سنة يا معلم 👑</span>
-                <span class="text-zinc-500 font-mono text-[10px]">#03_SOLO</span>
+                <span class="text-zinc-500 font-mono text-[10px]">#03_SHOT</span>
               </div>
             </div>
           </div>
@@ -460,7 +404,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- 4. SECTION: 'لسه بنبدأ 😂' (STRICT ONE MONTH REALITY) -->
+    <!-- 4. SECTION: 'لسه بنبدأ 😂' -->
     <!-- ============================================================ -->
     <section id="new-beginning" class="relative max-w-5xl mx-auto px-4 sm:px-6">
       <div class="glass-card rounded-3xl p-8 sm:p-14 relative overflow-hidden border-gold-400/20 text-center">
@@ -486,7 +430,6 @@
           </div>
         </div>
 
-        <!-- Funny Interactive Button -->
         <div class="pt-8">
           <button onclick="triggerFunnyClick(this)" class="px-6 py-2.5 rounded-full bg-zinc-800/80 border border-zinc-700 hover:border-gold-400 text-zinc-300 hover:text-gold-300 text-sm font-cairo transition-all">
             متدوسش هنا
@@ -513,10 +456,8 @@
         </p>
       </div>
 
-      <!-- 5 Personality Cards Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <!-- Card 1: جدع -->
         <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 space-y-4">
           <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-300">
             <i data-lucide="shield-check" class="w-6 h-6"></i>
@@ -527,7 +468,6 @@
           </p>
         </div>
 
-        <!-- Card 2: طيب -->
         <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 space-y-4">
           <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-300">
             <i data-lucide="heart" class="w-6 h-6"></i>
@@ -538,7 +478,6 @@
           </p>
         </div>
 
-        <!-- Card 3: دمه خفيف -->
         <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 space-y-4">
           <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-300">
             <i data-lucide="laugh" class="w-6 h-6"></i>
@@ -549,7 +488,6 @@
           </p>
         </div>
 
-        <!-- Card 4: رايق -->
         <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 space-y-4">
           <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-300">
             <i data-lucide="coffee" class="w-6 h-6"></i>
@@ -568,7 +506,6 @@
     <!-- ============================================================ -->
     <section class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <div class="relative py-12 sm:py-16">
-        
         <div class="font-cinzel text-8xl sm:text-[13rem] md:text-[16rem] font-black leading-none gold-gradient-text tracking-tight opacity-90 select-none">
           31
         </div>
@@ -584,7 +521,6 @@
             (السن ده بيحتاج فنجان قهوة زيادة وضهر مسنود كويس، بس لسه الهيبة في قمتها)
           </p>
         </div>
-
       </div>
     </section>
 
@@ -603,26 +539,17 @@
         </p>
       </div>
 
-      <!-- 3D Canvas Box -->
       <div class="glass-card rounded-3xl p-4 sm:p-8 relative border-gold-400/30 overflow-hidden">
         
-        <!-- Three.js Canvas Container -->
         <div id="cake-canvas-container" class="w-full h-[380px] sm:h-[480px] rounded-2xl relative cursor-grab active:cursor-grabbing bg-radial from-noir-850 to-noir-950 flex items-center justify-center overflow-hidden">
           <canvas id="cake-canvas" class="w-full h-full block"></canvas>
 
-          <!-- 3D Canvas Loading Overlay if needed -->
-          <div id="cake-loader" class="absolute inset-0 flex items-center justify-center bg-noir-950/80 pointer-events-none transition-opacity duration-500 opacity-0">
-            <span class="text-gold-300 font-cairo text-sm">جاري تحضير التورتة...</span>
-          </div>
-
-          <!-- Rotation Hint Badge -->
           <div class="absolute top-4 right-4 pointer-events-none px-3 py-1 rounded-full bg-noir-950/70 border border-zinc-700/80 text-[11px] text-zinc-300 flex items-center gap-1.5 font-cairo">
             <i data-lucide="move" class="w-3.5 h-3.5 text-gold-400"></i>
             <span>حرك الماوس أو صباعك للف التورتة 360°</span>
           </div>
         </div>
 
-        <!-- Controls & Flame Light Button -->
         <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <div class="text-xs text-zinc-400 font-cairo">حالة الشموع:</div>
@@ -640,7 +567,6 @@
           </div>
         </div>
 
-        <!-- Surprise Revealed Message after Lighting Cake -->
         <div id="cake-celebration-banner" class="mt-6 p-6 rounded-2xl bg-gradient-to-r from-gold-400/20 via-gold-400/10 to-transparent border border-gold-400/40 text-center transition-all duration-700 hidden">
           <div class="text-2xl sm:text-3xl font-black font-cairo text-zinc-100 flex items-center justify-center gap-3">
             <span>كل سنة وانت طيب يا شريف ❤️</span>
@@ -690,8 +616,6 @@
     <section id="final-message" class="relative max-w-4xl mx-auto px-4 sm:px-6">
       
       <div class="glass-card rounded-3xl p-8 sm:p-14 relative border-gold-400/30 overflow-hidden">
-        
-        <!-- Large quotation watermark -->
         <span class="absolute -bottom-10 -left-6 text-9xl font-serif text-gold-400/5 select-none pointer-events-none">“</span>
 
         <div class="flex items-center gap-3 mb-6">
@@ -699,7 +623,6 @@
           <span class="text-xs uppercase tracking-[0.25em] font-syne text-gold-400 font-bold">من صاحبك اللي لسه بقاله شهر</span>
         </div>
 
-        <!-- The Message in Natural Warm Egyptian Tone -->
         <div class="space-y-6 text-zinc-200 font-cairo text-lg sm:text-2xl leading-relaxed">
           <h3 class="text-2xl sm:text-4xl font-extrabold text-zinc-100 gold-gradient-text">
             كل سنة وانت طيب يا شريف ❤️
@@ -751,7 +674,6 @@
           من صاحبك اللي لسه بقاله شهر بس 😂🤝
         </div>
 
-        <!-- Back to Top Button -->
         <div class="pt-8">
           <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-xs uppercase tracking-[0.2em] font-syne text-zinc-500 hover:text-gold-400 transition-colors flex items-center justify-center gap-2 mx-auto">
             <i data-lucide="arrow-up" class="w-4 h-4"></i>
@@ -765,7 +687,7 @@
   </main>
 
   <!-- ============================================================ -->
-  <!-- CUSTOM MODAL DIALOG (No native alert/confirm) -->
+  <!-- CUSTOM MODAL DIALOG -->
   <!-- ============================================================ -->
   <div id="custom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-noir-950/80 backdrop-blur-sm p-4 hidden opacity-0 transition-opacity duration-300">
     <div class="glass-card max-w-md w-full rounded-2xl p-6 sm:p-8 text-center space-y-5 border-gold-400/40 shadow-2xl">
@@ -785,12 +707,8 @@
   <!-- JAVASCRIPT ENGINE -->
   <!-- ============================================================ -->
   <script>
-    // Initialize Lucide Icons
     lucide.createIcons();
 
-    /* -------------------------------------------------------------
-       1. SYNTHESIZED WEB AUDIO ENGINE (No external MP3 dependencies)
-       ------------------------------------------------------------- */
     let audioCtx = null;
     let isMuted = false;
     let musicStarted = false;
@@ -856,13 +774,12 @@
       }
     }
 
-    // Elegant Luxury Gold Chime Synth Sound
     function playChimeSound() {
       if (isMuted) return;
       initAudio();
       try {
         const now = audioCtx.currentTime;
-        const freqs = [523.25, 659.25, 783.99, 1046.50]; // C Major / Luxury chord
+        const freqs = [523.25, 659.25, 783.99, 1046.50];
 
         freqs.forEach((freq, idx) => {
           const osc = audioCtx.createOscillator();
@@ -886,7 +803,6 @@
       }
     }
 
-    // Celebration Sparkle Blast Tone
     function playCelebrationFanfare() {
       if (isMuted) return;
       initAudio();
@@ -914,11 +830,7 @@
       }
     }
 
-    /* -------------------------------------------------------------
-       2. CINEMATIC INTRO SEQUENCER
-       ------------------------------------------------------------- */
     window.addEventListener('DOMContentLoaded', () => {
-      // Step-by-step reveal of intro typography
       setTimeout(() => {
         const l1 = document.getElementById('intro-line-1');
         if (l1) { l1.classList.remove('opacity-0', 'translate-y-4'); }
@@ -971,9 +883,6 @@
       }, 1000);
     }
 
-    /* -------------------------------------------------------------
-       3. MODAL AND FUNNY INTERACTIONS
-       ------------------------------------------------------------- */
     function alertModal(message) {
       const modal = document.getElementById('custom-modal');
       const content = document.getElementById('modal-content');
@@ -997,7 +906,7 @@
     }
 
     /* -------------------------------------------------------------
-       5. 3D LUXURY BIRTHDAY CAKE IN THREE.JS
+       THREE.JS CAKE ENGINE
        ------------------------------------------------------------- */
     let scene, camera, renderer, cakeGroup;
     let candleFlames = [];
@@ -1017,15 +926,11 @@
       const width = container.clientWidth;
       const height = container.clientHeight;
 
-      // 1. Scene
       scene = new THREE.Scene();
-
-      // 2. Camera
       camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
       camera.position.set(0, 3.2, 7.5);
       camera.lookAt(0, 0.8, 0);
 
-      // 3. Renderer
       renderer = new THREE.WebGLRenderer({
         canvas: canvas,
         alpha: true,
@@ -1037,11 +942,9 @@
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-      // 4. Lighting System (Luxury Dark Studio Atmosphere)
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
       scene.add(ambientLight);
 
-      // Key Warm Gold Spotlight
       const goldSpot = new THREE.SpotLight(0xD4AF37, 2.5);
       goldSpot.position.set(5, 8, 5);
       goldSpot.angle = Math.PI / 4;
@@ -1049,12 +952,10 @@
       goldSpot.castShadow = true;
       scene.add(goldSpot);
 
-      // Cool Rim Light for metallic edges
       const rimLight = new THREE.DirectionalLight(0xA0A0A0, 1.2);
       rimLight.position.set(-6, 4, -4);
       scene.add(rimLight);
 
-      // 5. Cake Hierarchy
       cakeGroup = new THREE.Group();
       scene.add(cakeGroup);
       cakeWarmLight = new THREE.PointLight(0xffb86b, 0, 8, 2);
@@ -1076,7 +977,6 @@
       chocolateTexture.wrapS = THREE.RepeatWrapping;
       chocolateTexture.wrapT = THREE.RepeatWrapping;
       chocolateTexture.repeat.set(2, 1);
-      chocolateTexture.encoding = THREE.sRGBEncoding;
 
       const charcoalCakeMat = new THREE.MeshPhysicalMaterial({
         map: chocolateTexture,
@@ -1102,21 +1002,18 @@
         clearcoat: 0.2
       });
 
-      // Metallic Champagne Gold Trim
       const metallicGoldMat = new THREE.MeshStandardMaterial({
         color: 0xD4AF37,
         roughness: 0.25,
         metalness: 0.85
       });
 
-      // Metallic Plate
       const plateGeo = new THREE.CylinderGeometry(2.3, 2.0, 0.15, 64);
       const plateMesh = new THREE.Mesh(plateGeo, metallicGoldMat);
       plateMesh.position.y = -0.075;
       plateMesh.receiveShadow = true;
       cakeGroup.add(plateMesh);
 
-      // Bottom Tier
       const bottomTierGeo = new THREE.CylinderGeometry(1.8, 1.8, 1.1, 96);
       const bottomTier = new THREE.Mesh(bottomTierGeo, charcoalCakeMat);
       bottomTier.position.y = 0.55;
@@ -1124,7 +1021,6 @@
       bottomTier.receiveShadow = true;
       cakeGroup.add(bottomTier);
 
-      // Bottom Tier Gold Trim Bands
       const trimBottom1 = new THREE.Mesh(new THREE.TorusGeometry(1.81, 0.04, 16, 64), metallicGoldMat);
       trimBottom1.rotation.x = Math.PI / 2;
       trimBottom1.position.y = 0.05;
@@ -1135,7 +1031,6 @@
       trimBottom2.position.y = 1.05;
       cakeGroup.add(trimBottom2);
 
-      // Top Tier
       const topTierGeo = new THREE.CylinderGeometry(1.2, 1.2, 0.95, 96);
       const topTier = new THREE.Mesh(topTierGeo, charcoalCakeMat);
       topTier.position.y = 1.57;
@@ -1143,7 +1038,6 @@
       topTier.receiveShadow = true;
       cakeGroup.add(topTier);
 
-      // Top Tier Gold Trim Bands
       const trimTop1 = new THREE.Mesh(new THREE.TorusGeometry(1.21, 0.035, 16, 64), metallicGoldMat);
       trimTop1.rotation.x = Math.PI / 2;
       trimTop1.position.y = 1.12;
@@ -1190,30 +1084,21 @@
       groundShadow.position.y = -0.16;
       cakeGroup.add(groundShadow);
 
-      // 6. 3D Metallic Number "31" on top of the Cake
       create31Numbers(cakeGroup, metallicGoldMat);
-
-      // 7. Gold Candles with Flame Orbs
       createLuxuryCandles(cakeGroup, metallicGoldMat);
 
-      // Mouse drag controls
       container.addEventListener('mousedown', onMouseDown);
       window.addEventListener('mouseup', onMouseUp);
       container.addEventListener('mousemove', onMouseMove);
 
-      // Touch drag for mobile
       container.addEventListener('touchstart', onTouchStart, { passive: true });
       window.addEventListener('touchend', onTouchEnd);
       container.addEventListener('touchmove', onTouchMove, { passive: true });
 
-      // Resize event
       window.addEventListener('resize', onWindowResize);
-
-      // Start loop
       animateCake();
     }
 
-    // Procedural 3D "31" Graphic on Top Tier
     function create31Numbers(parent, goldMat) {
       const numGroup = new THREE.Group();
       numGroup.position.set(0, 2.47, 0.42);
@@ -1249,7 +1134,6 @@
       parent.add(numGroup);
     }
 
-    // Procedural Luxury Candles with Realistic Flame Objects
     function createLuxuryCandles(parent, goldMat) {
       const candlePositions = [
         [-0.6, 2.05, -0.4],
@@ -1267,7 +1151,6 @@
       coreGeo.scale(0.58, 1.35, 0.58);
 
       candlePositions.forEach((pos) => {
-        // Candle stick
         const candleMesh = new THREE.Mesh(candleGeo, waxMat);
         candleMesh.position.set(pos[0], pos[1] + 0.275, pos[2]);
         candleMesh.castShadow = true;
@@ -1282,7 +1165,6 @@
         wick.position.set(pos[0], pos[1] + 0.59, pos[2]);
         parent.add(wick);
 
-        // Flame mesh (glowing tear)
         const flameMat = new THREE.MeshBasicMaterial({
           color: 0xFFAA22,
           transparent: true,
@@ -1299,7 +1181,6 @@
         parent.add(coreMesh);
         candleCoreFlames.push(coreMesh);
 
-        // Candle Point Light for warmth
         const pLight = new THREE.PointLight(0xFFB347, 0, 3.5);
         pLight.position.set(pos[0], pos[1] + 0.7, pos[2]);
         parent.add(pLight);
@@ -1359,17 +1240,14 @@
       setTimeout(() => { camera.position.y = originalY; }, 420);
     }
 
-    // Animation Loop
     function animateCake() {
       requestAnimationFrame(animateCake);
 
       if (cakeGroup) {
-        // Slow elegant auto-rotation
         if (!isDragging) {
           cakeGroup.rotation.y += 0.005;
         }
 
-        // Flicker flame if lit
         if (isCandlesLit) {
           const time = Date.now() * 0.005;
           candleFlames.forEach((flame, index) => {
@@ -1399,7 +1277,6 @@
       renderer.render(scene, camera);
     }
 
-    // Mouse & Touch Controls
     function onMouseDown(e) {
       isDragging = true;
       previousMousePosition = { x: e.clientX, y: e.clientY };
@@ -1448,14 +1325,10 @@
       renderer.setSize(w, h);
     }
 
-    // Initialize 3D cake after window fully loads
     window.addEventListener('load', () => {
       initThreeCake();
     });
 
-    /* -------------------------------------------------------------
-       6. DESKTOP MOUSE AURA FOLLOWER (Disabled on touch)
-       ------------------------------------------------------------- */
     const cursor = document.getElementById('cursor-follower');
     if (cursor && window.matchMedia('(pointer: fine)').matches) {
       window.addEventListener('mousemove', (e) => {
@@ -1468,9 +1341,6 @@
       });
     }
 
-    /* -------------------------------------------------------------
-       7. 3D CARD PERSPECTIVE TILT ON MOUSEMOVE FOR PHOTO 1
-       ------------------------------------------------------------- */
     const cardPhoto1 = document.getElementById('card-photo-1');
     if (cardPhoto1 && window.matchMedia('(pointer: fine)').matches) {
       cardPhoto1.addEventListener('mousemove', (e) => {
